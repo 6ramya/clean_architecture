@@ -1,9 +1,13 @@
+import 'package:clean_architecture/src/core/constants.dart';
 import 'package:clean_architecture/src/domain/entities/source.dart';
 import 'package:equatable/equatable.dart';
+import 'package:floor/floor.dart';
 
+@Entity(tableName:kArticlesTableName)
 class Article extends Equatable {
+  @PrimaryKey(autoGenerate:true)
   final int? id;
-  final Source? source;
+  final Source source;
   final String? author;
   final String? title;
   final String? description;
@@ -20,7 +24,7 @@ class Article extends Equatable {
       this.author,
       this.content,
       this.publishedAt,
-      this.source,
+      required this.source,
       this.urlToImage});
 
   @override

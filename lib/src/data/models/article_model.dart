@@ -5,7 +5,7 @@ import '../../domain/entities/article.dart';
 class ArticleModel extends Article {
   const ArticleModel(
       {int? id,
-      SourceModel? source,
+      required SourceModel source,
       String? author,
       String? title,
       String? description,
@@ -27,12 +27,12 @@ class ArticleModel extends Article {
   factory ArticleModel.fromJson(Map<String, dynamic> map) {
     return ArticleModel(
         source: SourceModel.fromJson(map['source']),
-        author: map['author'] as String,
-        title: map['title'] as String,
-        description: map['description'] as String,
-        urlToImage: map['urlToImage'] as String,
-        url: map['url'] as String,
-        publishedAt: map['publishedAt'] as String,
-        content: map['content'] as String);
+        author: map['author'],
+        title: map['title'],
+        description: map['description'],
+        urlToImage: map['urlToImage'],
+        url: map['url'],
+        publishedAt: map['publishedAt'],
+        content: map['content']);
   }
 }

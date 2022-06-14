@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:retrofit/retrofit.dart';
 
@@ -11,10 +9,7 @@ part 'news_api_service.g.dart';
 
 @RestApi(baseUrl:kBaseUrl)
 abstract class NewsApiService{
-  factory NewsApiService(Dio dio, {String? baseUrl}) {
-    // TODO: implement
-    throw UnimplementedError();
-  }
+  factory NewsApiService(Dio dio, {String? baseUrl}) = _NewsApiService;
 
   @GET('/top-headlines')
   Future<HttpResponse<BreakingNewsResponseModel>> getBreakingNewsArticles({
